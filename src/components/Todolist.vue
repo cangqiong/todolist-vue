@@ -47,7 +47,21 @@
 
 
 <script>
+import Common from '../common'
+import Store from '../store'
+
 export default {
+
+    // 初始化界面时
+    created() {
+        const isLogin = this.isLogin();
+        if (isLogin) {
+            this.getTodolist();
+        } else {
+            this.$router.push('/') // 进行登录界面
+        }
+
+    },
     data() {
         return {
             name: 'test',
@@ -103,6 +117,28 @@ export default {
                 type: 'info',
                 message: '任务还原'
             })
+        },
+        isLogin() {
+            const token = sessionStorage.getItem('login-status');
+            if (token != null && token != 'null') {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        getTodolist() {
+            this.$http.get('http://localhost:8092/todoList/query/' + this.id)
+                .then((res) => {
+                    if (res.status == 200) {
+                        console.log(res.data);
+                        this.list = res.data
+                    } else {
+                        this.$message.error('获取列表失败！')
+                    }
+                }, (err) => {
+                    this.$message.error('获取列表失败！')
+                    console.log(err)
+                })
         }
     }
 }
