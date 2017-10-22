@@ -127,7 +127,7 @@ export default {
             }
         },
         getTodolist() {
-            this.$http.get('http://localhost:8092/todoList/query/' + this.id)
+            this.$http.get('http://www.xiaocanghai.com/todoList/query/' + this.id)
                 .then((res) => {
                     if (res.status == 200) {
                         console.log(res.data);

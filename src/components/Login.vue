@@ -52,7 +52,7 @@ export default {
                 username: this.account,
                 password: this.password
             };
-            this.$http.post('http://localhost:8092/login/auth', obj) // 将信息发送给后端
+            this.$http.post('http://www.xiaocanghai.com/login/auth', obj) // 将信息发送给后端
                 .then((res) => {
                     if (res.data.code === 200) {
                         // 使用sessionStorage将token存储
