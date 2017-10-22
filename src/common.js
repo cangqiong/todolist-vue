@@ -1,5 +1,6 @@
-let serverUrl= 'http://loocalhost:8090';
+let serverUrl= 'http://www.xiaocanghai.com:8081';
+let serverUrl= 'http://www.xiaocanghai.com:8081';
 let common = {
-  serverUrl: 'http://loocalhost:8090',
-  loginUrl: 'http://loocalhost:8090' + '/login/auth'
+  serverUrl: 'http://www.xiaocanghai.com:8081',
+  loginUrl: 'http://www.xiaocanghai.com:8081' + '/login/auth'
 }
